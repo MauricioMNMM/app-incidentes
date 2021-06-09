@@ -8,7 +8,7 @@ $nombre = $_POST['name'];
 $acciones = $_POST['acciones'];
 
 //DECLARAMOS LA VARIABLE QUERY Y LE ASIGNAMOS LA SENTENCIA SQL
-$query = "UPDATE incidentes SET Fecha='".$fecha."', Descripcion='".$descripcion."', Nombre=".$nombre." , Acciones=".$acciones." WHERE Id=".$id;
+$query = "UPDATE incidentes_db SET Fecha='".$fecha."', Descripcion='".$descripcion."', Nombre=".$nombre." , Acciones=".$acciones." WHERE Id=".$id;
 
 //DECLARAMOS LA VARIABLE $RESULTADO Y LE ASIGNAMOS LA EJECUCION DE LA VARIABLE QUERY
 $resultado = $conn->query($query);

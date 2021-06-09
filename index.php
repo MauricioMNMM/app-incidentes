@@ -58,6 +58,7 @@ include("conexion.php");
           <th class="w-3/12 text-center">Descripcion</th>
           <th class="w-2/12 text-center">Nombre de quien reporta</th>
           <th class="w-3/12 text-center">Acciones tomadas</th>
+          <th class="w-3/12 text-center">Opciones</th>
         </tr>
         </thead>
         <tbody>
@@ -65,11 +66,23 @@ include("conexion.php");
         while ($fila = $resultado->fetch_assoc()){
           ?>
           <tr class="">
-            <td class="w-1/12"><?php echo $fila['Id']; ?></td>
-            <td class="w-2/12"><?php echo $fila['Fecha']; ?></td>
-            <td class="w-1/5"><?php echo $fila['Descripcion']; ?></td>
-            <td class="w-1/12"><?php echo $fila['Nombre']; ?></td>
-            <td class="w-1/12"><?php echo $fila['Acciones']; ?></td>
+            <td class="w-2/12 text-center"><?php echo $fila['Fecha']; ?></td>
+            <td class="w-2/5 text-center"><?php echo $fila['Descripcion']; ?></td>
+            <td class="w-2/12 text-center"><?php echo $fila['Nombre']; ?></td>
+            <td class="w-3/12 text-center"><?php echo $fila['Acciones']; ?></td>
+            <td class="text-center" colspan="3">
+              <form action="ver.php" method="get">
+                <input name="filaId" type="text" value="<?php echo $fila['id']; ?>" hidden>
+                <button type="submit" class="py-2 px-6 text-white bg-blue-500 shadow-md">Ver</button>
+              </form>
+              <form action="editar.php" method="post">
+                <input name="filaId" type="text" value="<?php echo $fila['id']; ?>" hidden>
+                <button type="submit" class="py-2 px-6 text-white bg-green-500 shadow-md">Editar</button>
+              </form>
+              <form action="eliminar.php" method="post">
+                <input name="filaId" type="text" value="<?php echo $fila['id']; ?>" hidden>
+                <button type="submit" class="py-2 px-6 text-white bg-red-500 shadow-md">Eliminar</button>
+              </form>
             </td>
 
           </tr>
